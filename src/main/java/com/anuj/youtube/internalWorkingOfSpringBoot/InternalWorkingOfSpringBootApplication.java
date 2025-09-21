@@ -1,0 +1,33 @@
+package com.anuj.youtube.internalWorkingOfSpringBoot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class InternalWorkingOfSpringBootApplication implements CommandLineRunner { // CommandLineRunner is an interface provided by Spring Boot,
+
+	public static void main(String[] args) {
+		SpringApplication.run(InternalWorkingOfSpringBootApplication.class, args);
+	}
+
+
+//	private RazorpayPaymentService paymentService = new RazorpayPaymentService();
+
+//	@Autowired
+//	private RazorpayPaymentService paymentService;
+
+	private final PaymentService paymentService;
+
+	// This is a Constructor Dependency Injection
+	public InternalWorkingOfSpringBootApplication(PaymentService paymentService) {
+		this.paymentService = paymentService;
+//	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		String payment = paymentService.pay();
+		System.out.println("Payment done:- "+payment);
+	}
+}
