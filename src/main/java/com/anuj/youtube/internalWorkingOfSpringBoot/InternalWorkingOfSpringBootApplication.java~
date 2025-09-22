@@ -15,13 +15,15 @@ public class InternalWorkingOfSpringBootApplication implements CommandLineRunner
 
 //	private RazorpayPaymentService paymentService = new RazorpayPaymentService();
 
-	@Autowired
-	private RazorpayPaymentService paymentService;
+//	@Autowired
+//	private RazorpayPaymentService paymentService;
 
-//	// This is a Constructor Dependency Injection
-//	public InternalWorkingOfSpringBootApplication(RazorpayPaymentService paymentService) {
-//		this.paymentService = paymentService;
-//	}
+	private final RazorpayPaymentService paymentService;
+
+	// This is a Constructor Dependency Injection
+	public InternalWorkingOfSpringBootApplication(RazorpayPaymentService paymentService) {
+		this.paymentService = paymentService;
+	}
 
 	@Override
 	public void run(String... args) throws Exception {

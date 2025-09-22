@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
-//@Component
+@Component
 //@Service
 //@RestController
 //@Repository
@@ -21,3 +21,4 @@ public class StripePaymentService implements PaymentService{
         return payment;
     }
 }
+
